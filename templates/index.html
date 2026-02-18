@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Credit Score Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="main-container">
+
+    <header>
+        <h1>AI Credit Score Engine</h1>
+        <p>Advanced Machine Learning Based CIBIL Prediction System</p>
+    </header>
+
+    <div class="dashboard">
+
+        <!-- INPUT PANEL -->
+        <div class="panel input-panel">
+            <h2>Customer Financial Profile</h2>
+
+            <label>Total Annual Income</label>
+            <input id="income" type="number" placeholder="Enter Income">
+
+            <label>Credit Amount (Loan Principal)</label>
+            <input id="credit" type="number" placeholder="Enter Credit Amount">
+
+            <label>Monthly EMI (Annuity)</label>
+            <input id="annuity" type="number" placeholder="Enter EMI Amount">
+
+            <label>Number of Children</label>
+            <input id="children" type="number" placeholder="Enter Children Count">
+
+            <label>Credit Bureau Requests (Last Year)</label>
+            <input id="bureau_year" type="number" placeholder="Enter Bureau Requests">
+
+            <label>Gender</label>
+            <select id="gender">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
+
+            <label>Own Car</label>
+            <select id="car">
+                <option value="Y">Yes</option>
+                <option value="N">No</option>
+            </select>
+
+            <label>Own Property</label>
+            <select id="realty">
+                <option value="Y">Yes</option>
+                <option value="N">No</option>
+            </select>
+
+            <button id="predictBtn">Generate Credit Score</button>
+        </div>
+
+        <!-- RESULT PANEL -->
+        <div class="panel result-panel">
+            <h2>Credit Score Result</h2>
+
+            <div class="gauge-wrapper">
+                <svg width="220" height="220">
+                    <circle cx="110" cy="110" r="90" class="gauge-bg"/>
+                    <circle cx="110" cy="110" r="90" class="gauge-progress" id="gaugeFill"/>
+                </svg>
+                <div class="score-display" id="cibil">--</div>
+            </div>
+
+            <div class="pd-section">
+                Probability of Default:
+                <span id="pd">--</span>
+            </div>
+
+            <div class="risk-box" id="band">--</div>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
